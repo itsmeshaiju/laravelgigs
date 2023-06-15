@@ -26,13 +26,16 @@ use App\Models\Listing;
 
 //All Listing
 Route::get('/', [ListingController::class,'index']);
-//Show create listing form
+//Show Create Listing Form
 Route::get('/listings/create',[ListingController::class,'create']);
-//Store listing data
+//Store Listing Data
 Route::post('listings',[ListingController::class,'store']);
-//Single listing
+//Single Listing
 Route::get('listings/{listing}',[ListingController::class,'show']);
-
+//Show Edit Listing Form
+Route::get('listings/{listing}/edit',[ListingController::class,'edit']);
+//Update Form Listing
+Route::put('listings/{listing}',[ListingController::class,'update']);
 // Route::get('hello',function(){
 //     return response('Hello World');
 // });
