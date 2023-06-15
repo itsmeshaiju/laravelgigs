@@ -15,6 +15,15 @@ use App\Models\Listing;
 |
 */
 //get all listing
+//Resource Method naming
+// Index => Show all listing
+// Show => show single listing
+// Create => show form to create new listing
+// Store => Store new listing
+// Edit => Show form to edit listing
+// Update => Update listing
+// Destory => Delete listing
+
 
 Route::get('/', [ListingController::class,'index']);
 Route::get('listings/{listing}',[ListingController::class,'show']);
