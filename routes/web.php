@@ -20,12 +20,14 @@ use App\Models\Listing;
 // Show => show single listing
 // Create => show form to create new listing
 // Store => Store new listing
-// Edit => Show form to edit listing
+// Edit => Show form to edit listingSSSS
 // Update => Update listing
 // Destory => Delete listing
 
 
 Route::get('/', [ListingController::class,'index']);
+Route::get('/listings/create',[ListingController::class,'create']);
+Route::post('listings',[ListingController::class,'store']);
 Route::get('listings/{listing}',[ListingController::class,'show']);
 
 // Route::get('hello',function(){

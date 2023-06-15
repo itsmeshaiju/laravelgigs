@@ -11,13 +11,13 @@ class Listing extends Model
     public function scopeFilter($query, array $filter){
        
         if($filter['tag']?? false){
-            $query->where('tag', 'like', '%'. request('tag').'%');
+            $query->where('tags', 'like', '%'. request('tag').'%');
         }
 
         if($filter['search']??false){
             $query->where('title','like','%'.request('search').'%')
             ->orWhere('description','like','%'.request('search').'%')
-            ->orWhere('tag','like','%'.request('search').'%');
+            ->orWhere('tags','like','%'.request('search').'%');
         }
     }
 }
