@@ -36,6 +36,9 @@ Route::get('listings/{listing}',[ListingController::class,'show']);
 Route::get('listings/{listing}/edit',[ListingController::class,'edit']);
 //Update Form Listing
 Route::put('listings/{listing}',[ListingController::class,'update']);
+//Delete Listing
+Route::delete('listings/{listing}',[ListingController::class,'destory']);
+
 // Route::get('hello',function(){
 //     return response('Hello World');
 // });
