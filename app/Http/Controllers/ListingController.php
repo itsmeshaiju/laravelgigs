@@ -13,7 +13,7 @@ class ListingController extends Controller
         return view('listings.index', [
             'heading'=>'Listing',
             //'listings'=>Listing::all()
-            'listings'=>Listing::latest()->filter(request(['tag','search']))->paginate(5)
+            'listings'=>Listing::latest()->filter(request(['tag','search']))->paginate(10)
             
         ]);
     }
@@ -49,7 +49,7 @@ class ListingController extends Controller
             if($request->hasFile('logo')){
                 $formField['logo']=$request->file('logo')->store('logos','public');
             }
-
+            $formField['user_id'] = auth()->id();
             Listing::create($formField);
             return redirect('/')->with('message','Listing Created Sucessfully');
             //return redirect()
@@ -79,7 +79,8 @@ class ListingController extends Controller
             if($request->hasFile('logo')){
                 $formField['logo']=$request->file('logo')->store('logos','public');
             }
-
+            
+            $formField['user_id'] = auth()->id();
             $listing->update($formField);
             return back()->with('message','Listing Updated Sucessfully');
     }
@@ -89,5 +90,12 @@ class ListingController extends Controller
     public function destory(Listing $listing){
         $listing->delete();
         return redirect('/')->with('message','Listing deleted sucessfully');
+    }
+
+    //Manage listings
+
+    public function manage(){
+        //dd(auth()->user()->listings()->get());
+        return view('listings.manage',['listings'=>auth()->user()->listings()->get()]);
     }
 }
