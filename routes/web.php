@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ListingController;
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,11 @@ Route::put('listings/{listing}',[ListingController::class,'update']);
 //Delete Listing
 Route::delete('listings/{listing}',[ListingController::class,'destory']);
 
+//User Registration Form
+Route::get('register',[UserController::class,'create']);
+
+//User Storing To DB
+Route::post('users',[UserController::class,'store']);
 // Route::get('hello',function(){
 //     return response('Hello World');
 // });
