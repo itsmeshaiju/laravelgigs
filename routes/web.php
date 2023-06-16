@@ -45,6 +45,9 @@ Route::get('register',[UserController::class,'create']);
 
 //User Storing To DB
 Route::post('users',[UserController::class,'store']);
+
+//User Logged out
+Route::post('logout',[UserController::class,'logout']);
 // Route::get('hello',function(){
 //     return response('Hello World');
 // });
