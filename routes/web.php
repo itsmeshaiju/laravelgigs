@@ -48,6 +48,12 @@ Route::post('users',[UserController::class,'store']);
 
 //User Logged out
 Route::post('logout',[UserController::class,'logout']);
+
+//User login Form
+Route::get('login',[UserController::class,'login']);
+
+//User Authenticate
+Route::post('users/authenticate',[UserController::class,'authenticate']);
 // Route::get('hello',function(){
 //     return response('Hello World');
 // });
